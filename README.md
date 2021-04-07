@@ -7,12 +7,10 @@ Here’s the grammar of the input language:
     LC	 	=	 	num 
     
  	 	|	 	id
-    
  	 	|	 	(/ id => LC) 
-    
  	 	|	 	(LC LC)
-    
-    |	 	(+ LC LC) 
+        
+        |	 	(+ LC LC) 
     
  	 	|	 	(* LC LC) 
     
