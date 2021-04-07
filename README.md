@@ -4,8 +4,8 @@ lambda-calculus-translation-teamracket created by GitHub Classroom
 Write a compiler that accepts terms in the lambda calculus and outputs either JavaScript or Python or (massively harder) C.
 
 Here’s the grammar of the input language:
-
-  LC	 	=	 	num 
+    LC	 	=	 	num 
+    
  	 	|	 	id
     
  	 	|	 	(/ id => LC) 
