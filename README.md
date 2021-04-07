@@ -9,13 +9,9 @@ Here’s the grammar of the input language:
  	 	|	 	id
  	 	|	 	(/ id => LC) 
  	 	|	 	(LC LC)
-        
         |	 	(+ LC LC) 
-    
  	 	|	 	(* LC LC) 
-    
- 	 	|	 	(ifleq0 LC LC LC) 
-    
+ 	 	|	 	(ifleq0 LC LC LC)     
  	 	|	 	(println LC) 
     
  ...where num is a number, and id is an identifier. 
