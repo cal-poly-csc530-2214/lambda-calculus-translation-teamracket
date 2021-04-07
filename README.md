@@ -9,7 +9,7 @@ Here’s the grammar of the input language:
  	 	|	 	id
  	 	|	 	(/ id => LC) 
  	 	|	 	(LC LC)     
-             |	 	(+ LC LC)
+            |	 	(+ LC LC)
  	 	|	 	(* LC LC) 
  	 	|	 	(ifleq0 LC LC LC)     
  	 	|	 	(println LC) 
