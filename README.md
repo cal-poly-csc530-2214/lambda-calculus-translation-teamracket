@@ -11,7 +11,7 @@ Here’s the grammar of the input language:
  	 	|	 	(LC LC)     
             |	 	(+ LC LC)
  	 	|	 	(* LC LC) 
- 	 	|	 	(ifleq0 LC LC LC)     
+ 	 	|	 	(ifleq0 LC LC LC)     (if then else)
  	 	|	 	(println LC) 
     
  ...where num is a number, and id is an identifier. 
