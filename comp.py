@@ -25,12 +25,18 @@ def compiler(exp, local_symbols = []):
             arguments = ""
             for symbol in local_symbols:
                 arguments += dumps(symbol)
-            return compiler(dumps(parsed_exp[1]))+ " = lambda " + arguments + " : " + res
+            return compiler(dumps(parsed_exp[1])) + " = lambda " + arguments + " : " + res
+    elif len(parsed_exp) == 2:
+        if dumps(parsed_exp[0]) == 'println':
+            pass
+        else:
+            res = compiler(dumps(parsed_exp[0]))
+            return"" + res+"\n"+"(" + res[0]+")" + "("+  compiler(dumps(parsed_exp[1]))+")"
     
-
+           
 
 def main():
-    res = compiler('(/ y => (+ x 1))')
+    res = compiler('((/ y => (+ x 1)) 2)')
     print(res)
 
 
