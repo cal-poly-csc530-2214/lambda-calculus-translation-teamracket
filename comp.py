@@ -5,7 +5,6 @@ from sexpdata import loads, dumps
 
 def compiler(exp, local_symbols = []):
     parsed_exp = loads(exp)
-    #"num ,id ,(+ num num)"
 
     if type(parsed_exp) is int:
         return dumps(parsed_exp)
@@ -28,7 +27,7 @@ def compiler(exp, local_symbols = []):
             return compiler(dumps(parsed_exp[1])) + " = lambda " + arguments + " : " + res
     elif len(parsed_exp) == 2:
         if dumps(parsed_exp[0]) == 'println':
-            pass
+            return "print(\"" + dumps(parsed_exp[1]) + "\")"
         else:
             res = compiler(dumps(parsed_exp[0]))
             return"" + res+"\n"+"(" + res[0]+")" + "("+  compiler(dumps(parsed_exp[1]))+")"
@@ -36,7 +35,7 @@ def compiler(exp, local_symbols = []):
            
 
 def main():
-    res = compiler('((/ y => (+ x 1)) 2)')
+    res = compiler('(println 1)')
     print(res)
 
 
