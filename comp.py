@@ -1,15 +1,30 @@
 import sys
-import re
+import sexpdata
+from sexpdata import loads, dumps
+
 
 def compiler(exp):
-    print 'Number of arguments:', len(exp), 'arguments.'
-    print 'Argument List:', str(exp)
+    parsed_exp = loads(exp)
+    #"num ,id ,(+ num num)"
+
+    if type(parsed_exp) is int:
+        return dumps(parsed_exp)
+    elif type(parsed_exp) is sexpdata.Symbol:
+        return dumps(parsed_exp)
+    elif len(parsed_exp) == 3:
+        
+        if(dumps(parsed_exp[0]) =='+'):
+            return compiler(dumps(parsed_exp[1])) + ' + ' + compiler(dumps(parsed_exp[2]))
+        elif (dumps(parsed_exp[0]) =='/'):
+            return compiler(dumps(parsed_exp[1])) + ' / ' + compiler(dumps(parsed_exp[2]))
+
+
     
 
 
-
 def main():
-    compiler(sys.argv)
+    res = compiler('(/ 1 2)')
+    print(res)
 
 
 if __name__ == '__main__':
